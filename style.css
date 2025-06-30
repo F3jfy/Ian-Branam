@@ -257,19 +257,21 @@ footer {
   transition: 0.3s;
 }
 
-/* --- KEEP this to blur the rest of the page --- */
+/* Overlay that blurs the background */
 #overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(10px); /* ✅ applies blur to the BACKGROUND behind the overlay */
+  /* Original: background-color: rgba(255, 255, 255, 0.3); */
+  /* New: Make it a semi-transparent black for darkening */
+  background-color: rgba(0, 0, 0, 0.5); /* Adjust the last value (0.5) for more or less darkness */
+  backdrop-filter: blur(10px); /* Keep this for the blur effect */
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.3s ease;
-  z-index: 100;
+  transition: opacity 0.3s ease, background-color 0.3s ease; /* Add background-color to transition */
+  z-index: 99;
 }
 
 #overlay.active {
@@ -277,20 +279,22 @@ footer {
   visibility: visible;
 }
 
-/* --- THIS is the menu panel – make it solid, not blurred --- */
+/* Sliding solid menu panel */
+/* Existing Mobile Menu Styles (keep these) */
 #mobile-menu {
   position: fixed;
   top: 0;
-  right: -70vw; /* hidden by default */
+  right: -70vw;
   width: 70vw;
   height: 100vh;
-  background: #ffffff; /* ✅ solid background */
+  background: #fff; /* solid white */
   box-shadow: -4px 0 12px rgba(0, 0, 0, 0.1);
   transition: right 0.3s ease;
-  z-index: 110;
+  z-index: 100;
   display: flex;
-  flex-direction: column;
-  padding: 3rem 2rem;
+  flex-direction: column; /* This is good for stacking */
+  padding: 3rem 2rem; /* Give some overall padding to the menu panel */
+  gap: 1.5rem; /* Use gap for spacing between items, remove from .mobile-nav if this is used */
 }
 
 /* Slide in menu */
@@ -298,17 +302,49 @@ footer {
   right: 0;
 }
 
-
+/* Styles for the navigation links inside the mobile menu */
 .mobile-nav {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  /* gap: 1.5rem;  <-- If you put gap on #mobile-menu itself, you can remove it here */
+  width: 100%; /* Ensure the nav takes full width for the links to expand */
 }
 
 .mobile-nav a {
+  /* Base styles for the "buttons" */
   font-weight: 600;
   font-size: 1.2rem;
-  color: #111827;
+  color: #111827; /* Dark text for contrast */
+  text-align: center; /* Center the text within each "button" */
+  padding: 1rem 1.5rem; /* Good padding for a button feel */
+  margin-bottom: 0.5rem; /* Space between each button */
+  border-radius: 8px; /* Slightly rounded corners */
+  transition: all 0.3s ease; /* Smooth transitions for hover effects */
+  display: block; /* Make links behave like block-level elements to take full width and padding */
+
+  /* Background color (optional, but makes them look more like buttons) */
+  background-color: #f3f4f6; /* Light grey background */
+  border: 1px solid #e5e7eb; /* Subtle border */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Soft shadow */
+}
+
+.mobile-nav a:last-child {
+  margin-bottom: 0; /* Remove margin from the last item */
+}
+
+/* Hover effects for interaction */
+.mobile-nav a:hover {
+  background-color: #e0e2e6; /* Slightly darker on hover */
+  color: #000; /* Make text a bit darker on hover */
+  transform: translateY(-2px); /* Slight lift effect */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* More pronounced shadow on hover */
+}
+
+/* Optional: Style for an "active" or "current" link if you have one */
+.mobile-nav a.current-page {
+  background-color: #111827; /* Dark background for active page */
+  color: #fff; /* White text for active page */
+  pointer-events: none; /* Make it unclickable if it's the current page */
 }
 
 
