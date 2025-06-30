@@ -93,21 +93,58 @@ nav a:hover {
   margin-bottom: 1.5rem;
   font-weight: 400;
 }
+/* Hero section for contact page */
+.contact-hero {
+  background: url('main.webp') center/cover no-repeat; /* Replace with an appropriate image for your contact page */
+  height: 60vh; /* Slightly shorter than main hero */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
 
+/* Original .btn-primary styles (keep these as the base) */
 .btn-primary {
-  background-color: #111827;
-  color: #fff;
-  padding: 0.75rem 1.8rem;
-  font-weight: 600;
-  border: none;
-  border-radius: 8px;
-  transition: background-color 0.3s ease;
+  background-color: #3b3b3b; /* Dark background */
+  color: #fff;              /* White text */
+  padding: 0.75rem 1.8rem;   /* Good internal spacing */
+  font-weight: 600;          /* Bold text */
+  border: none;              /* No border */
+  border-radius: 8px;        /* Rounded corners */
+  display: inline-block;     /* Ensures padding/margin works correctly for link */
+  text-align: center;        /* Centers text if button width varies */
+  text-decoration: none;     /* Removes underline if it's an <a> tag */
+  cursor: pointer;           /* Indicates it's clickable */
+  
+  /* Enhanced transitions for all properties that change */
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
 }
 
+/* Hover state: More engaging feedback */
 .btn-primary:hover {
-  background-color: #000;
+  background-color: #000;   /* Slightly darker black */
+  transform: translateY(-3px); /* Lifts the button slightly */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* More pronounced shadow */
+  color: #fff; /* Ensure text remains white */
 }
 
+/* Active/Clicked state: Visual feedback when pressed */
+.btn-primary:active {
+  background-color: #333;   /* Even darker when clicked */
+  transform: translateY(0);  /* Pushes button back down */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Smaller shadow */
+}
+
+/* Focus state: For keyboard navigation (accessibility) */
+.btn-primary:focus {
+  outline: 2px solid #555; /* Visible outline for keyboard users */
+  outline-offset: 2px;     /* Small gap between outline and button */
+}
+
+/* Optional: Add a subtle letter-spacing for stylistic appeal */
+.btn-primary {
+  letter-spacing: 0.5px;
+}
 /* Categories */
 .categories {
   padding: 4rem 2rem;
@@ -371,4 +408,162 @@ footer {
   #hamburger {
     display: flex;
   }
+}
+
+
+.contact-details-simple {
+  padding: 4rem 2rem;
+  text-align: center;
+  max-width: 900px; /* Adjust max-width as needed */
+  margin: 0 auto;
+}
+
+.contact-details-simple h2 {
+  font-size: 2rem;
+  margin-bottom: 2.5rem;
+  font-weight: 700;
+  color: #111;
+}
+
+.contact-info-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid for items */
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.contact-item {
+  background-color: #fff;
+  padding: 2.5rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; /* Center content within each item */
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.contact-item h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.8rem;
+  color: #111;
+  font-weight: 600;
+}
+
+.contact-item p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #555;
+  margin-bottom: 0.5rem; /* Space between lines of text */
+}
+
+.contact-item p:last-of-type {
+  margin-bottom: 0; /* Remove margin from last paragraph */
+}
+
+.contact-item a {
+  color: #3b3b3b; /* Match button color */
+  font-weight: 500;
+  text-decoration: none; /* No underline by default */
+  border-bottom: 2px solid transparent; /* For hover effect */
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.contact-item a:hover {
+  color: #000;
+  border-color: #000; /* Underline on hover */
+}
+
+
+/* Nav current page indicator */
+.desktop-nav a.current-page,
+.mobile-nav a.current-page {
+  font-weight: 700; /* Make current page bold */
+  color: #111; /* Darker color for current page */
+}
+/* If you want a more distinct look for the current page in desktop nav */
+.desktop-nav a.current-page {
+    position: relative;
+}
+
+.desktop-nav a.current-page::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px; /* Adjust as needed */
+    width: 100%;
+    height: 2px;
+    background-color: #111;
+    transform: scaleX(1);
+    transition: transform 0.3s ease;
+}
+
+/* For mobile, use the existing background/text color for active link */
+.mobile-nav a.current-page {
+  background-color: #111827; /* Dark background for active page */
+  color: #fff; /* White text for active page */
+  pointer-events: none; /* Make it unclickable if it's the current page */
+}
+
+/* Recent Projects */
+.recent-work {
+  padding: 4rem 2rem;
+  text-align: center;
+  background-color: #f9fafb;
+}
+
+.recent-work h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.project-card {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+
+.project-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.project-info {
+  padding: 1rem;
+  text-align: left;
+}
+
+.project-info h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.project-info p {
+  font-size: 0.95rem;
+  color: #555;
 }
