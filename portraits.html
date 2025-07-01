@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cars Portfolio - Ian Martin Branam</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+</head>
+<body>
+  <header>
+    <div class="logo">Ian Martin Branam</div>
+    <nav class="desktop-nav">
+      <a href="index.html">Home</a>
+      <a href="cars.html" >Cars</a>
+      <a href="portraits.html" class="current-page">Portraits</a>
+      <a href="architecture.html">Architecture</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <button id="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+  </header>
+
+  <div id="mobile-menu" aria-hidden="true">
+    <nav class="mobile-nav">
+      <a href="index.html">Home</a>
+      <a href="cars.html" >Cars</a>
+      <a href="portraits.html" class="current-page">Portraits</a>
+      <a href="architecture.html">Architecture</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+
+ <section class="hero">
+  <div class="hero-overlay">
+    <div class="hero-content">
+      <h1>Capturing Souls Through the Lens</h1>
+      <p>Emotive and authentic portrait photography that tells your story.</p>
+    </div>
+  </div>
+</section>
+
+
+
+ <main class="cars-gallery">
+  <div class="gallery-grid">
+    <img src="portrait1.webp" alt="Portrait photo 1" loading="lazy" />
+    <img src="portrait2.webp" alt="Portrait photo 2" loading="lazy" />
+    <img src="portrait3.webp" alt="Portrait photo 3" loading="lazy" />
+    <img src="portrait4.webp" alt="Portrait photo 4" loading="lazy" />
+    <img src="portrait5.webp" alt="Portrait photo 5" loading="lazy" />
+    <img src="portrait6.webp" alt="Portrait photo 6" loading="lazy" />
+    <img src="portrait7.webp" alt="Portrait photo 7" loading="lazy" />
+    <img src="portrait8.webp" alt="Portrait photo 8" loading="lazy" />
+    <img src="portrait9.webp" alt="Portrait photo 9" loading="lazy" />
+    <img src="portrait10.webp" alt="Portrait photo 10" loading="lazy" />
+    <img src="portrait11.webp" alt="Portrait photo 11" loading="lazy" />
+    <img src="portrait12.webp" alt="Portrait photo 12" loading="lazy" />
+    <img src="portrait13.webp" alt="Portrait photo 13" loading="lazy" />
+    <img src="portrait14.webp" alt="Portrait photo 14" loading="lazy" />
+    <img src="portrait15.webp" alt="Portrait photo 15" loading="lazy" />
+    <img src="portrait16.webp" alt="Portrait photo 16" loading="lazy" />
+    <img src="portrait17.webp" alt="Portrait photo 17" loading="lazy" />
+    <img src="portrait18.webp" alt="Portrait photo 18" loading="lazy" />
+    <img src="portrait19.webp" alt="Portrait photo 19" loading="lazy" />
+    <img src="portrait20.webp" alt="Portrait photo 20" loading="lazy" />
+  </div>
+</main>
+
+
+  <footer>
+    <div class="footer-content">
+      <p>&copy; 2025 Ian Martin Branam Photography. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Lightbox container -->
+  <div id="lightbox" aria-hidden="true" role="dialog" aria-label="Image preview">
+    <button id="lightbox-close" aria-label="Close lightbox">&times;</button>
+    <img id="lightbox-img" src="" alt="" />
+  </div>
+
+  <div id="overlay"></div>
+  <script>
+    // Lightbox JavaScript
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxClose = document.getElementById('lightbox-close');
+    const galleryImages = document.querySelectorAll('.gallery-grid img');
+
+    galleryImages.forEach(img => {
+      img.addEventListener('click', () => {
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        lightbox.classList.add('active');
+        lightbox.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden'; // Prevent scroll behind lightbox
+      });
+    });
+
+    lightboxClose.addEventListener('click', () => {
+      lightbox.classList.remove('active');
+      lightbox.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = ''; // Restore scroll
+    });
+
+    lightbox.addEventListener('click', e => {
+      if (e.target === lightbox) {
+        lightboxClose.click();
+      }
+    });
+
+    // Close on ESC key
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+        lightboxClose.click();
+      }
+    });
+  </script>
+</body>
+</html>

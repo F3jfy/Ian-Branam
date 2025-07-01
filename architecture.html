@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cars Portfolio - Ian Martin Branam</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+</head>
+<body>
+  <header>
+    <div class="logo">Ian Martin Branam</div>
+    <nav class="desktop-nav">
+      <a href="index.html">Home</a>
+      <a href="cars.html" >Cars</a>
+      <a href="portraits.html" >Portraits</a>
+      <a href="architecture.html" class="current-page">Architecture</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <button id="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+  </header>
+
+  <div id="mobile-menu" aria-hidden="true">
+    <nav class="mobile-nav">
+      <a href="index.html">Home</a>
+      <a href="cars.html" >Cars</a>
+      <a href="portraits.html" >Portraits</a>
+      <a href="architecture.html" class="current-page">Architecture</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+
+ <section class="hero">
+  <div class="hero-overlay">
+    <div class="hero-content">
+      <h1>Structures that Inspire</h1>
+      <p>Architectural photography highlighting design, light, and form.</p>
+    </div>
+  </div>
+</section>
+
+
+
+<main class="cars-gallery">
+  <div class="gallery-grid">
+    <img src="architecture1.webp" alt="Architecture photo 1" loading="lazy" />
+    <img src="architecture2.webp" alt="Architecture photo 2" loading="lazy" />
+    <img src="architecture3.webp" alt="Architecture photo 3" loading="lazy" />
+    <img src="architecture4.webp" alt="Architecture photo 4" loading="lazy" />
+    <img src="architecture5.webp" alt="Architecture photo 5" loading="lazy" />
+    <img src="architecture6.webp" alt="Architecture photo 6" loading="lazy" />
+    <img src="architecture7.webp" alt="Architecture photo 7" loading="lazy" />
+    <img src="architecture8.webp" alt="Architecture photo 8" loading="lazy" />
+    <img src="architecture9.webp" alt="Architecture photo 9" loading="lazy" />
+    <img src="architecture10.webp" alt="Architecture photo 10" loading="lazy" />
+    <img src="architecture11.webp" alt="Architecture photo 11" loading="lazy" />
+    <img src="architecture12.webp" alt="Architecture photo 12" loading="lazy" />
+    <img src="architecture13.webp" alt="Architecture photo 13" loading="lazy" />
+    <img src="architecture14.webp" alt="Architecture photo 14" loading="lazy" />
+    <img src="architecture15.webp" alt="Architecture photo 15" loading="lazy" />
+    <img src="architecture16.webp" alt="Architecture photo 16" loading="lazy" />
+    <img src="architecture17.webp" alt="Architecture photo 17" loading="lazy" />
+    <img src="architecture18.webp" alt="Architecture photo 18" loading="lazy" />
+    <img src="architecture19.webp" alt="Architecture photo 19" loading="lazy" />
+    <img src="architecture20.webp" alt="Architecture photo 20" loading="lazy" />
+  </div>
+</main>
+
+
+  <footer>
+    <div class="footer-content">
+      <p>&copy; 2025 Ian Martin Branam Photography. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Lightbox container -->
+  <div id="lightbox" aria-hidden="true" role="dialog" aria-label="Image preview">
+    <button id="lightbox-close" aria-label="Close lightbox">&times;</button>
+    <img id="lightbox-img" src="" alt="" />
+  </div>
+
+  <div id="overlay"></div>
+  <script>
+    // Lightbox JavaScript
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxClose = document.getElementById('lightbox-close');
+    const galleryImages = document.querySelectorAll('.gallery-grid img');
+
+    galleryImages.forEach(img => {
+      img.addEventListener('click', () => {
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        lightbox.classList.add('active');
+        lightbox.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden'; // Prevent scroll behind lightbox
+      });
+    });
+
+    lightboxClose.addEventListener('click', () => {
+      lightbox.classList.remove('active');
+      lightbox.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = ''; // Restore scroll
+    });
+
+    lightbox.addEventListener('click', e => {
+      if (e.target === lightbox) {
+        lightboxClose.click();
+      }
+    });
+
+    // Close on ESC key
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+        lightboxClose.click();
+      }
+    });
+  </script>
+</body>
+</html>
