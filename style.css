@@ -426,23 +426,66 @@ footer {
 }
 
 .contact-info-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid for items */
-  gap: 2rem;
-  margin-top: 2rem;
+    display: flex; /* Enables Flexbox */
+    flex-wrap: wrap; /* Allows items to wrap to the next line if there's not enough space */
+    justify-content: center; /* Centers items horizontally within the container */
+    gap: 30px; /* Adds space between contact cards */
+    max-width: 1200px; /* Limits the overall width of the card section on very large screens */
+    margin: 0 auto; /* Centers the container itself on the page */
+    padding: 20px; /* Add some padding around the group of cards */
 }
 
 .contact-item {
-  background-color: #fff;
-  padding: 2.5rem 2rem;
-  border-radius: 12px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; /* Center content within each item */
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+    flex: 1 1 300px; /* A flexible shorthand: grow, shrink, and base width of 300px */
+    min-width: 280px; /* Ensures cards don't get too narrow on smaller screens */
+    max-width: 400px; /* Prevents cards from becoming excessively wide */
+
+    /* Add any existing visual styling for your contact cards here */
+    border: 1px solid #e0e0e0;
+    padding: 25px;
+    text-align: center;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Optional: Add a subtle hover effect */
+.contact-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.12);
+}
+
+/* Basic styling for text within the cards for better aesthetics */
+.contact-item h3 {
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 1.3em;
+}
+
+.contact-item p {
+    color: #666;
+    margin-bottom: 5px;
+    line-height: 1.5;
+}
+
+.contact-item a {
+    color: #007bff; /* A nice blue for links */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.contact-item a:hover {
+    text-decoration: underline;
+}
+
+/* Styling for the main heading */
+.contact-details-simple h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.5em;
+    color: #333;
+    text-decoration: none;
 }
 
 .contact-item:hover {
@@ -455,6 +498,7 @@ footer {
   margin-bottom: 0.8rem;
   color: #111;
   font-weight: 600;
+  text-decoration: none;
 }
 
 .contact-item p {
@@ -462,6 +506,7 @@ footer {
   line-height: 1.6;
   color: #555;
   margin-bottom: 0.5rem; /* Space between lines of text */
+  text-decoration: none;
 }
 
 .contact-item p:last-of-type {
@@ -469,16 +514,14 @@ footer {
 }
 
 .contact-item a {
-  color: #3b3b3b; /* Match button color */
-  font-weight: 500;
-  text-decoration: none; /* No underline by default */
-  border-bottom: 2px solid transparent; /* For hover effect */
-  transition: color 0.2s ease, border-color 0.2s ease;
+    color: #004794; /* A nice blue for links */
+    text-decoration: none; /* Crucial: ensures no default underline */
+    font-weight: bold;
+    text-decoration: none;
 }
 
 .contact-item a:hover {
-  color: #000;
-  border-color: #000; /* Underline on hover */
+    text-decoration: underline; /* Only underline the link on hover */
 }
 
 
