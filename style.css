@@ -646,7 +646,7 @@ footer {
 
 .gallery-grid img {
   width: 100%;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 4 / 3;
   object-fit: cover;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.07);
@@ -660,7 +660,60 @@ footer {
 }
 
 
+/* Coming Soon Section */
+.coming-soon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - var(--header-height) - var(--footer-height)); /* Adjust based on your header/footer height */
+    text-align: center;
+    padding: 2rem; /* Add some padding */
+    background-color: var(--background-color, #f4f4f4); /* Use your site's background color or define one */
+    color: var(--text-color, #333); /* Use your site's text color */
+}
 
+.coming-soon-content h1 {
+    font-size: 4rem; /* Big heading */
+    margin-bottom: 1rem;
+    color: var(--primary-color, #007bff); /* Use your site's primary color */
+}
+
+.coming-soon-content p {
+    font-size: 1.5rem; /* Noticeable paragraph */
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .coming-soon-content h1 {
+        font-size: 3rem;
+    }
+
+    .coming-soon-content p {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .coming-soon-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .coming-soon-content p {
+        font-size: 1rem;
+    }
+}
+
+/* Optional: Define CSS variables for consistency if you haven't already */
+:root {
+    --header-height: 80px; /* Example, adjust to your actual header height */
+    --footer-height: 100px; /* Example, adjust to your actual footer height */
+    --primary-color: #000000; /* Example primary color */
+    --background-color: #f4f4f4; /* Example background color */
+    --text-color: #333; /* Example text color */
+}
 
 
 
