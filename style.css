@@ -418,6 +418,187 @@ footer {
     transform: scale(1.1);
 }
 
+/* ==== CONTACT HERO ==== */
+.contact-hero {
+  position: relative;
+  height: 70vh;
+  background: url('main.webp') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+}
+
+.contact-hero .hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(6px);
+  z-index: 1;
+}
+
+.contact-hero .hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+  padding: 2rem;
+}
+
+.contact-hero .hero-content h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  letter-spacing: -1px;
+}
+
+.contact-hero .hero-content p {
+  font-size: 1.2rem;
+  color: var(--secondary-text, #ccc);
+}
+
+/* ==== CONTACT DETAILS SPLIT LAYOUT ==== */
+.contact-details-simple {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: linear-gradient(135deg, #0d0d0d, #1a1a1a);
+  padding: 5rem 2rem;
+  gap: 4rem;
+  color: white;
+}
+
+.contact-details-simple h2 {
+  font-size: 2.8rem;
+  margin-bottom: 2rem;
+  color: var(--accent-color, #ffc107);
+  text-align: left;
+}
+
+.contact-info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Card Style */
+.contact-item {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 1.5rem 2rem;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+  transition: 0.3s ease;
+}
+
+.contact-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-4px);
+}
+
+.contact-item h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: var(--accent-color, #ffc107);
+}
+
+.contact-item p {
+  font-size: 0.95rem;
+  color: #ddd;
+  margin-bottom: 0.25rem;
+}
+
+.contact-item a {
+  color: var(--accent-color, #ffc107);
+  text-decoration: none;
+  font-weight: 500;
+  word-break: break-word;
+}
+
+.contact-item a:hover {
+  text-decoration: underline;
+}
+
+/* Right Side Placeholder (optional graphic or form) */
+.contact-details-simple .right-column {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.right-column-placeholder {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px dashed rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 4rem;
+  text-align: center;
+  color: #aaa;
+  font-style: italic;
+}
+
+/* ==== RESPONSIVE ==== */
+@media (max-width: 900px) {
+  .contact-details-simple {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .contact-details-simple h2 {
+    text-align: center;
+  }
+  .right-column-placeholder {
+    margin-top: 3rem;
+  }
+}
+
+.coming-soon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  background: linear-gradient(135deg, #0f0f0f, #1f1f1f);
+  color: #fff;
+  text-align: center;
+  padding: 4rem 2rem;
+  font-family: 'Rubik', sans-serif;
+}
+
+.coming-soon-content {
+  max-width: 700px;
+  padding: 2rem 3rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(6px);
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.coming-soon-content h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  color: #fdc829; /* accent yellow */
+}
+
+.coming-soon-content p {
+  font-size: 1.2rem;
+  color: #ccc;
+  line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .coming-soon-content h1 {
+    font-size: 2.2rem;
+  }
+
+  .coming-soon-content p {
+    font-size: 1rem;
+  }
+
+  .coming-soon-content {
+    padding: 1.5rem;
+  }
+}
 
 
 
