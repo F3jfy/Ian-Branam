@@ -1,718 +1,422 @@
-/* Reset and base styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* --- VARIABLES & BASE STYLES --- */
+:root {
+    --bg-color: #121212;
+    --surface-color: #1e1e1e;
+    --primary-text: #e0e0e0;
+    --secondary-text: #a0a0a0;
+    --accent-color: #ffffff;
+    --border-color: #2c2c2c;
+    --shadow-color: rgba(0, 0, 0, 0.4);
+    --font-family: 'Inter', sans-serif;
 }
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 html {
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
 
 body {
-  font-family: 'Space Grotesk', sans-serif;
-  background: linear-gradient(135deg, #f9fafb, #f3f4f6);
-  color: #111827;
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-  transition: color 0.2s ease;
+    font-family: var(--font-family);
+    background-color: var(--bg-color);
+    color: var(--primary-text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
 }
 
 img {
-  max-width: 100%;
-  display: block;
+    max-width: 100%;
+    display: block;
 }
 
-/* Header */
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease;
+}
+
+/* --- HEADER & NAVIGATION --- */
 header {
-  background-color: #fff;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-  padding: 1.5rem 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: sticky;
-  top: 0;
-  z-index: 100;
+    background-color: rgba(18, 18, 18, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-color);
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .logo {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: #111;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent-color);
 }
 
-nav a {
-  margin-left: 1.5rem;
-  font-weight: 500;
-  color: #374151;
+.desktop-nav {
+    display: none; /* Hidden on mobile by default */
 }
 
-nav a:hover {
-  color: #111;
+@media (min-width: 769px) {
+    .desktop-nav {
+        display: flex;
+        gap: 2rem;
+    }
+    .desktop-nav a {
+        font-weight: 400;
+        color: var(--secondary-text);
+        position: relative;
+        padding: 0.5rem 0;
+    }
+    .desktop-nav a:hover {
+        color: var(--accent-color);
+    }
+    .desktop-nav a.current-page {
+        color: var(--accent-color);
+        font-weight: 600;
+    }
+    .desktop-nav a.current-page::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: var(--accent-color);
+    }
 }
 
-/* Hero Section */
+/* --- HERO SECTION --- */
 .hero {
-  background: url('main.webp') center/cover no-repeat;
-  height: 85vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
+    background: url('main.webp') center/cover no-repeat;
+    height: 90vh;
+    position: relative;
+    display: flex;
+    align-items: center;  
+    justify-content: center;
 }
 
 .hero-overlay {
-  background: rgba(0, 0, 0, 0.4);
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    background: linear-gradient(to top, rgba(18, 18, 18, 0.9), rgba(0, 0, 0, 0.3));
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Add these three lines to center the content */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .hero-content {
-  text-align: center;
-  max-width: 700px;
-  padding: 2rem;
-  color: #fff;
+    position: relative;
+    text-align: center;
+    color: #fff;
+    padding: 2rem;
+    max-width: 800px;
 }
 
 .hero-content h1 {
-  font-size: 2.8rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
 }
 
 .hero-content p {
-  font-size: 1.2rem;
-  margin-bottom: 1.5rem;
-  font-weight: 400;
-}
-/* Hero section for contact page */
-.contact-hero {
-  background: url('main.webp') center/cover no-repeat; /* Replace with an appropriate image for your contact page */
-  height: 60vh; /* Slightly shorter than main hero */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    color: var(--primary-text);
+    margin-bottom: 2rem;
 }
 
-/* Original .btn-primary styles (keep these as the base) */
 .btn-primary {
-  background-color: #3b3b3b; /* Dark background */
-  color: #fff;              /* White text */
-  padding: 0.75rem 1.8rem;   /* Good internal spacing */
-  font-weight: 600;          /* Bold text */
-  border: none;              /* No border */
-  border-radius: 8px;        /* Rounded corners */
-  display: inline-block;     /* Ensures padding/margin works correctly for link */
-  text-align: center;        /* Centers text if button width varies */
-  text-decoration: none;     /* Removes underline if it's an <a> tag */
-  cursor: pointer;           /* Indicates it's clickable */
-  
-  /* Enhanced transitions for all properties that change */
-  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+    padding: 0.8rem 2rem;
+    font-weight: 600;
+    border-radius: 8px;
+    display: inline-block;
+    transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
-/* Hover state: More engaging feedback */
 .btn-primary:hover {
-  background-color: #000;   /* Slightly darker black */
-  transform: translateY(-3px); /* Lifts the button slightly */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* More pronounced shadow */
-  color: #fff; /* Ensure text remains white */
+    transform: translateY(-3px);
+    background-color: #f0f0f0;
 }
 
-/* Active/Clicked state: Visual feedback when pressed */
-.btn-primary:active {
-  background-color: #333;   /* Even darker when clicked */
-  transform: translateY(0);  /* Pushes button back down */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Smaller shadow */
+/* --- GENERAL SECTION STYLING --- */
+.section-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 5rem 2rem;
+    text-align: center;
 }
 
-/* Focus state: For keyboard navigation (accessibility) */
-.btn-primary:focus {
-  outline: 2px solid #555; /* Visible outline for keyboard users */
-  outline-offset: 2px;     /* Small gap between outline and button */
+.section-container h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    color: var(--accent-color);
 }
 
-/* Optional: Add a subtle letter-spacing for stylistic appeal */
-.btn-primary {
-  letter-spacing: 0.5px;
-}
-/* Categories */
-.categories {
-  padding: 4rem 2rem;
-  text-align: center;
+/* --- ABOUT ME --- */
+.about-me p {
+    max-width: 700px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--secondary-text);
 }
 
-.categories h2 {
-  font-size: 2rem;
-  margin-bottom: 2.5rem;
-  font-weight: 700;
+/* --- PORTFOLIO CATEGORIES --- */
+.portfolio-categories {
+    background-color: var(--bg-color);
 }
 
 .category-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
 }
 
-.category {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.category a {
-  display: block;
-  border-radius: 12px;
-  overflow: hidden;
-  background: #fff;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
-}
-
-.category:hover {
-  transform: translateY(-4px);
-}
-
-.category-image {
-  height: 200px;
-  background-size: cover;
-  background-position: center;
-}
-
-.category h3 {
-  padding: 1rem;
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: #111;
-}
-
-.category-image.cars {
-  background-image: url('photo1.webp');
-}
-
-.category-image.architecture {
-  background-image: url('photo2.webp');
-}
-
-.category-image.portraits {
-  background-image: url('photo3.webp');
-}
-
-/* Recent Work */
-.recent-work {
-  padding: 4rem 2rem;
-  text-align: center;
-}
-
-.recent-work h2 {
-  font-size: 2rem;
-  font-weight: 700;
-}
-
-/* Footer */
-footer {
-  background: #f3f4f6;
-  border-top: 1px solid rgba(0, 0, 0, 0.05);
-  padding: 2rem;
-  text-align: center;
-  margin-top: 4rem;
-}
-
-.footer-content p {
-  font-size: 0.9rem;
-  color: #555;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .hero-content h1 {
-    font-size: 2rem;
-  }
-
-  nav {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  nav a {
-    margin: 0.5rem;
-  }
-}
-.about-me {
-  max-width: 700px;
-  margin: 4rem auto;
-  padding: 0 2rem;
-  text-align: center;
-  color: #333;
-}
-
-.about-me h2 {
-  font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-}
-
-.about-me p {
-  font-size: 1.1rem;
-  line-height: 1.7;
-  color: #555;
-}
-
-
-/* Hide desktop nav on mobile, show hamburger */
-.desktop-nav {
-  display: flex;
-  gap: 1.5rem;
-}
-
-#hamburger {
-  display: none;
-  flex-direction: column;
-  justify-content: space-around;
-  width: 28px;
-  height: 22px;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  z-index: 110;
-}
-
-#hamburger .bar {
-  width: 100%;
-  height: 3px;
-  background-color: #111827;
-  border-radius: 2px;
-  transition: 0.3s;
-}
-
-/* Overlay that blurs the background */
-#overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  /* Original: background-color: rgba(255, 255, 255, 0.3); */
-  /* New: Make it a semi-transparent black for darkening */
-  background-color: rgba(0, 0, 0, 0.5); /* Adjust the last value (0.5) for more or less darkness */
-  backdrop-filter: blur(10px); /* Keep this for the blur effect */
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s ease, background-color 0.3s ease; /* Add background-color to transition */
-  z-index: 99;
-}
-
-#overlay.active {
-  opacity: 1;
-  visibility: visible;
-}
-
-/* Sliding solid menu panel */
-/* Existing Mobile Menu Styles (keep these) */
-#mobile-menu {
-  position: fixed;
-  top: 0;
-  right: -70vw;
-  width: 70vw;
-  height: 100vh;
-  background: #fff; /* solid white */
-  box-shadow: -4px 0 12px rgba(0, 0, 0, 0.1);
-  transition: right 0.3s ease;
-  z-index: 100;
-  display: flex;
-  flex-direction: column; /* This is good for stacking */
-  padding: 3rem 2rem; /* Give some overall padding to the menu panel */
-  gap: 1.5rem; /* Use gap for spacing between items, remove from .mobile-nav if this is used */
-}
-
-/* Slide in menu */
-#mobile-menu.open {
-  right: 0;
-}
-
-/* Styles for the navigation links inside the mobile menu */
-.mobile-nav {
-  display: flex;
-  flex-direction: column;
-  /* gap: 1.5rem;  <-- If you put gap on #mobile-menu itself, you can remove it here */
-  width: 100%; /* Ensure the nav takes full width for the links to expand */
-}
-
-.mobile-nav a {
-  /* Base styles for the "buttons" */
-  font-weight: 600;
-  font-size: 1.2rem;
-  color: #111827; /* Dark text for contrast */
-  text-align: center; /* Center the text within each "button" */
-  padding: 1rem 1.5rem; /* Good padding for a button feel */
-  margin-bottom: 0.5rem; /* Space between each button */
-  border-radius: 8px; /* Slightly rounded corners */
-  transition: all 0.3s ease; /* Smooth transitions for hover effects */
-  display: block; /* Make links behave like block-level elements to take full width and padding */
-
-  /* Background color (optional, but makes them look more like buttons) */
-  background-color: #f3f4f6; /* Light grey background */
-  border: 1px solid #e5e7eb; /* Subtle border */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Soft shadow */
-}
-
-.mobile-nav a:last-child {
-  margin-bottom: 0; /* Remove margin from the last item */
-}
-
-/* Hover effects for interaction */
-.mobile-nav a:hover {
-  background-color: #e0e2e6; /* Slightly darker on hover */
-  color: #000; /* Make text a bit darker on hover */
-  transform: translateY(-2px); /* Slight lift effect */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* More pronounced shadow on hover */
-}
-
-/* Optional: Style for an "active" or "current" link if you have one */
-.mobile-nav a.current-page {
-  background-color: #111827; /* Dark background for active page */
-  color: #fff; /* White text for active page */
-  pointer-events: none; /* Make it unclickable if it's the current page */
-}
-
-
-
-/* Hamburger active animation */
-#hamburger.active .bar:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
-}
-#hamburger.active .bar:nth-child(2) {
-  opacity: 0;
-}
-#hamburger.active .bar:nth-child(3) {
-  transform: rotate(-45deg) translate(5px, -5px);
-}
-
-/* Responsive behavior */
-@media (max-width: 768px) {
-  .desktop-nav {
-    display: none;
-  }
-  
-  #hamburger {
-    display: flex;
-  }
-}
-
-
-.contact-details-simple {
-  padding: 4rem 2rem;
-  text-align: center;
-  max-width: 900px; /* Adjust max-width as needed */
-  margin: 0 auto;
-}
-
-.contact-details-simple h2 {
-  font-size: 2rem;
-  margin-bottom: 2.5rem;
-  font-weight: 700;
-  color: #111;
-}
-
-.contact-info-list {
-    display: flex; /* Enables Flexbox */
-    flex-wrap: wrap; /* Allows items to wrap to the next line if there's not enough space */
-    justify-content: center; /* Centers items horizontally within the container */
-    gap: 30px; /* Adds space between contact cards */
-    max-width: 1200px; /* Limits the overall width of the card section on very large screens */
-    margin: 0 auto; /* Centers the container itself on the page */
-    padding: 20px; /* Add some padding around the group of cards */
-}
-
-.contact-item {
-    flex: 1 1 300px; /* A flexible shorthand: grow, shrink, and base width of 300px */
-    min-width: 280px; /* Ensures cards don't get too narrow on smaller screens */
-    max-width: 400px; /* Prevents cards from becoming excessively wide */
-
-    /* Add any existing visual styling for your contact cards here */
-    border: 1px solid #e0e0e0;
-    padding: 25px;
-    text-align: center;
-    border-radius: 10px;
-    background-color: #ffffff;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+.category-card {
+    display: block;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Optional: Add a subtle hover effect */
-.contact-item:hover {
+.category-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 6px 15px rgba(0,0,0,0.12);
+    box-shadow: 0 10px 25px var(--shadow-color);
 }
 
-/* Basic styling for text within the cards for better aesthetics */
-.contact-item h3 {
-    color: #333;
-    margin-bottom: 10px;
-    font-size: 1.3em;
+.category-image {
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.4s ease;
 }
 
-.contact-item p {
-    color: #666;
-    margin-bottom: 5px;
-    line-height: 1.5;
+.category-card:hover .category-image {
+    transform: scale(1.05);
 }
 
-.contact-item a {
-    color: #007bff; /* A nice blue for links */
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.contact-item a:hover {
-    text-decoration: underline;
-}
-
-/* Styling for the main heading */
-.contact-details-simple h2 {
-    text-align: center;
-    margin-bottom: 40px;
-    font-size: 2.5em;
-    color: #333;
-    text-decoration: none;
-}
-
-.contact-item:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-}
-
-.contact-item h3 {
-  font-size: 1.5rem;
-  margin-bottom: 0.8rem;
-  color: #111;
-  font-weight: 600;
-  text-decoration: none;
-}
-
-.contact-item p {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  color: #555;
-  margin-bottom: 0.5rem; /* Space between lines of text */
-  text-decoration: none;
-}
-
-.contact-item p:last-of-type {
-  margin-bottom: 0; /* Remove margin from last paragraph */
-}
-
-.contact-item a {
-    color: #004794; /* A nice blue for links */
-    text-decoration: none; /* Crucial: ensures no default underline */
-    font-weight: bold;
-    text-decoration: none;
-}
-
-.contact-item a:hover {
-    text-decoration: underline; /* Only underline the link on hover */
-}
-
-
-/* Nav current page indicator */
-.desktop-nav a.current-page,
-.mobile-nav a.current-page {
-  font-weight: 700; /* Make current page bold */
-  color: #111; /* Darker color for current page */
-}
-/* If you want a more distinct look for the current page in desktop nav */
-.desktop-nav a.current-page {
-    position: relative;
-}
-
-.desktop-nav a.current-page::after {
-    content: '';
+.category-card h3 {
     position: absolute;
+    bottom: 0;
     left: 0;
-    bottom: -5px; /* Adjust as needed */
     width: 100%;
-    height: 2px;
-    background-color: #111;
-    transform: scaleX(1);
-    transition: transform 0.3s ease;
+    padding: 1.5rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #fff;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    text-align: left;
 }
 
-/* For mobile, use the existing background/text color for active link */
-.mobile-nav a.current-page {
-  background-color: #111827; /* Dark background for active page */
-  color: #fff; /* White text for active page */
-  pointer-events: none; /* Make it unclickable if it's the current page */
-}
+.category-image.cars { background-image: url('photo1.webp'); }
+.category-image.architecture { background-image: url('photo2.webp'); }
+.category-image.portraits { background-image: url('photo3.webp'); }
 
-/* Recent Projects */
+/* --- RECENT WORK --- */
 .recent-work {
-  padding: 4rem 2rem;
-  text-align: center;
-  background-color: #f9fafb;
-}
-
-.recent-work h2 {
-  font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: 2rem;
+    background-color: var(--surface-color);
 }
 
 .projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    text-align: left;
 }
 
 .project-card {
-  background: #fff;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: var(--bg-color);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
 .project-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    transform: translateY(-5px);
+    border-color: var(--secondary-text);
 }
 
 .project-card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
 }
 
 .project-info {
-  padding: 1rem;
-  text-align: left;
+    padding: 1.5rem;
 }
 
 .project-info h3 {
-  font-size: 1.1rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--accent-color);
 }
 
 .project-info p {
-  font-size: 0.95rem;
-  color: #555;
+    font-size: 1rem;
+    color: var(--secondary-text);
 }
 
-
-.page-hero {
-  text-align: center;
-  padding: 4rem 2rem 2rem;
-  max-width: 700px;
-  margin: 0 auto;
-  color: #111827;
+/* --- FOOTER --- */
+footer {
+    background: var(--surface-color);
+    border-top: 1px solid var(--border-color);
+    padding: 3rem 2rem;
+    text-align: center;
 }
 
-.page-hero h1 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
+.footer-content p {
+    color: var(--secondary-text);
+    margin-bottom: 0.5rem;
 }
 
-.page-hero p {
-  font-size: 1.2rem;
-  color: #555;
+.footer-designer-link {
+    color: var(--primary-text);
+    font-weight: 600;
+}
+.footer-designer-link:hover {
+    text-decoration: underline;
 }
 
-/* Cars gallery grid */
-.cars-gallery {
-  max-width: 1200px;
-  margin: 3rem auto 6rem;
-  padding: 0 1.5rem;
+/* --- MOBILE MENU & HAMBURGER --- */
+#hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 28px;
+    height: 22px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 1010;
+    position: relative; /* Ensure it's on top */
 }
 
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 1.5rem;
+@media (min-width: 769px) {
+    #hamburger {
+        display: none;
+    }
 }
 
-.gallery-grid img {
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.07);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
+#hamburger .bar {
+    width: 100%;
+    height: 3px;
+    background-color: var(--accent-color);
+    border-radius: 2px;
+    transition: all 0.3s ease-in-out;
 }
 
-.gallery-grid img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+/* Animate hamburger to an 'X' */
+#hamburger.active .bar {
+    /* Change bar color to contrast with the open menu */
+    background-color: var(--primary-text);
+}
+#hamburger.active .bar:nth-child(1) {
+    transform: rotate(45deg) translate(7px, 7px);
+}
+#hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+}
+#hamburger.active .bar:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
 }
 
+/* Full-screen menu */
+#mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: var(--surface-color);
+    z-index: 1005;
 
-/* Coming Soon Section */
-.coming-soon {
+    /* Center the nav links */
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: calc(100vh - var(--header-height) - var(--footer-height)); /* Adjust based on your header/footer height */
+
+    /* Hidden state for animation */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-100%);
+    transition: transform 0.4s ease, opacity 0.4s ease, visibility 0s 0.4s;
+}
+
+#mobile-menu.open {
+    /* Visible state for animation */
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+/* Navigation links container */
+.mobile-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem; /* Space between buttons */
+}
+
+/* Individual links */
+.mobile-nav a {
+    color: var(--primary-text);
+    font-size: 1.5rem; /* Larger font for full screen */
+    font-weight: 600;
+    padding: 1rem 2rem;
     text-align: center;
-    padding: 2rem; /* Add some padding */
-    background-color: var(--background-color, #f4f4f4); /* Use your site's background color or define one */
-    color: var(--text-color, #333); /* Use your site's text color */
+    border-radius: 8px;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.coming-soon-content h1 {
-    font-size: 4rem; /* Big heading */
-    margin-bottom: 1rem;
-    color: var(--primary-color, #007bff); /* Use your site's primary color */
+.mobile-nav a:hover {
+    background-color: var(--border-color);
 }
 
-.coming-soon-content p {
-    font-size: 1.5rem; /* Noticeable paragraph */
-    max-width: 800px;
-    margin: 0 auto;
-    line-height: 1.6;
+.mobile-nav a.current-page {
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+}
+/* Close Button for Mobile Menu */
+#close-menu-btn {
+    position: absolute;
+    top: 1.5rem;
+    right: 2rem;
+    background: transparent;
+    border: none;
+    color: var(--primary-text);
+    font-size: 2.5rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.3s ease;
 }
 
-/* Responsive adjustments for smaller screens */
-@media (max-width: 768px) {
-    .coming-soon-content h1 {
-        font-size: 3rem;
-    }
-
-    .coming-soon-content p {
-        font-size: 1.2rem;
-    }
+#close-menu-btn:hover {
+    color: var(--accent-color);
+    transform: scale(1.1);
 }
-
-@media (max-width: 480px) {
-    .coming-soon-content h1 {
-        font-size: 2.5rem;
-    }
-
-    .coming-soon-content p {
-        font-size: 1rem;
-    }
-}
-
-/* Optional: Define CSS variables for consistency if you haven't already */
-:root {
-    --header-height: 80px; /* Example, adjust to your actual header height */
-    --footer-height: 100px; /* Example, adjust to your actual footer height */
-    --primary-color: #000000; /* Example primary color */
-    --background-color: #f4f4f4; /* Example background color */
-    --text-color: #333; /* Example text color */
-}
-
 
 
 
