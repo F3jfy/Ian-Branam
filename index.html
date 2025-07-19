@@ -1,127 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Ian Martin Branam - Car & Architectural Photographer</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-<link rel="stylesheet" href="style.css" />
-
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ian Martin Branam - Car & Architectural Photographer</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
-
 <body>
-  <header>
-    <div class="logo">Ian Martin Branam</div>
-    
-    <nav class="desktop-nav">
-      <a href="index.html">Home</a>
-      <a href="#categories">Portfolio</a>
-      <a href="#about">About</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-    
-    <button id="hamburger" aria-label="Open menu" aria-expanded="false">
-      <span class="bar"></span>
-      <span class="bar"></span>
-      <span class="bar"></span>
-    </button>
-  </header>
 
-  <div id="mobile-menu" aria-hidden="true">
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo">Ian Martin Branam</a>
+            <nav class="desktop-nav">
+                <a href="index.html" class="current-page">Home</a>
+                <a href="#categories">Portfolio</a>
+                <a href="#about">About</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <button id="hamburger" aria-label="Open menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </header>
+
+    <div id="mobile-menu">
+    <button id="close-menu-btn" aria-label="Close menu">&times;</button>
+    
     <nav class="mobile-nav">
-      <a href="index.html">Home</a>
-      <a href="#categories">Portfolio</a>
-      <a href="#about">About</a>
-      <a href="contact.html">Contact</a>
+        <a href="index.html" class="current-page">Home</a>
+        <a href="#categories">Portfolio</a>
+        <a href="#about">About</a>
+        <a href="contact.html">Contact</a>
     </nav>
-  </div>
 </div>
-  <section class="hero">
-    <div class="hero-overlay">
-      <div class="hero-content">
-        <h1>Capturing the Essence of Motion and Structure</h1>
-        <p>Specializing in Automotive, Architectural, and Portrait Photography.</p>
-        <a href="#categories" class="btn-primary">View My Work</a>
- </div>
-    </div>
-  </section>
-    <section id="about" class="about-me">
-    <h2>About Me</h2>
-    <p>
-        Hi, I’m Ian Martin Branam, a passionate photographer specializing in automotive, architectural, and portrait photography. My work focuses on capturing the unique essence of motion and structure with creativity and precision.
-    </p>
-    </section>
+    <div id="overlay"></div>
 
-  <section id="categories" class="categories">
-    <h2>Specialties</h2>
-    <div class="category-grid">
-      <div class="category">
-        <a href="cars.html">
-          <div class="category-image cars"></div>
-          <h3>Cars</h3>
-        </a>
-      </div>
-      <div class="category">
-        <a href="architecture.html">
-          <div class="category-image architecture"></div>
-          <h3>Architecture</h3>
-        </a>
-      </div>
-      <div class="category">
-        <a href="portraits.html">
-          <div class="category-image portraits"></div>
-          <h3>Portraits</h3>
-        </a>
-      </div>    
-    </div>
-  </section>
+    <main>
+        <section class="hero">
+            <div class="hero-overlay">
+                <div class="hero-content">
+                    <h1>Capturing Motion & Structure</h1>
+                    <p>Specializing in Automotive and Architectural Photography</p>
+                    <a href="#categories" class="btn-primary">View My Work</a>
+                </div>
+            </div>
+        </section>
 
- <section class="recent-work">
-  <h2>Recent Projects</h2>
-  <div class="projects-grid">
-    <div class="project-card">
-      <img src="e30.webp" alt="Red Sports Car in Motion">
-      <div class="project-info">
-        <h3>BMW E30</h3>
-        <p>A timeless profile bathed in the soft glow of a forgotten era, sculpted by natural light and deep shadows.</p>
-      </div>
-    </div>
+        <section id="about" class="about-me">
+            <div class="section-container">
+                <h2>About Me</h2>
+                <p>Hi, I’m Ian Martin Branam, a passionate photographer specializing in automotive and architectural photography. My work focuses on capturing the unique essence of motion and structure with creativity and precision.</p>
+            </div>
+        </section>
 
-    <div class="project-card">
-      <img src="peugeot1.webp" alt="Modern Glass Building">
-      <div class="project-info">
-        <h3>PEUGEOT 106</h3>
-        <p>Dual reflections of passion, their forms accentuated by the natural light and the subtle contrast of their surroundings.</p>
-      </div>
-    </div>
+        <section id="categories" class="portfolio-categories">
+            <div class="section-container">
+                <h2>Specialties</h2>
+                <div class="category-grid">
+                    <a href="cars.html" class="category-card">
+                        <div class="category-image cars"></div>
+                        <h3>Cars</h3>
+                    </a>
+                    <a href="architecture.html" class="category-card">
+                        <div class="category-image architecture"></div>
+                        <h3>Architecture</h3>
+                    </a>
+                    <a href="portraits.html" class="category-card">
+                        <div class="category-image portraits"></div>
+                        <h3>Portraits</h3>
+                    </a>
+                </div>
+            </div>
+        </section>
 
-    <div class="project-card">
-      <img src="mustang2.webp" alt="Moody Portrait of a Woman">
-      <div class="project-info">
-        <h3>FORD MUSTANG</h3>
-        <p>An iconic silhouette emerging from the woodland's embrace, highlighted by the interplay of sun and shade.</p>
-      </div>
-    </div>
-  </div>
-</section>
+        <section class="recent-work">
+            <div class="section-container">
+                <h2>Recent Projects</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <img src="e30.webp" alt="Red BMW E30 sports car">
+                        <div class="project-info">
+                            <h3>BMW E30</h3>
+                            <p>A timeless profile sculpted by natural light and deep shadows.</p>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <img src="peugeot1.webp" alt="Two Peugeot 106 cars">
+                        <div class="project-info">
+                            <h3>PEUGEOT 106</h3>
+                            <p>Dual reflections of passion, accentuated by the subtle contrast of their surroundings.</p>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <img src="mustang2.webp" alt="Ford Mustang in a woodland setting">
+                        <div class="project-info">
+                            <h3>FORD MUSTANG</h3>
+                            <p>An iconic silhouette emerging from the woodland's embrace.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Ian Martin Branam Photography</p>
+            <p>Web design by <a href="http://www.adamfejfar.com" target="_blank" rel="noopener noreferrer" class="footer-designer-link">adamfejfar.com</a></p>
+        </div>
+    </footer>
 
-  <footer>
-    <div class="footer-content">
-      <p>&copy; 2025 Ian Martin Branam Photography</p>
-      <p>Web design by <a href="http://www.adamfejfar.com" target="_blank" rel="noopener noreferrer" class="footer-designer-link">adamfejfar.com</a></p>
-      <div class="social-links">
-      </div>
-    </div>
-  </footer>
-
-
-
-
-  <div id="overlay"></div> <script src="script.js" defer></script>
+    <script src="script.js" defer></script>
 </body>
-</html> 
+</html>
