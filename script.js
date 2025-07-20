@@ -1,7 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Select all necessary elements from the DOM
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobile-menu');
     const closeMenuBtn = document.getElementById('close-menu-btn');
+    const navLinks = document.querySelectorAll('#mobile-menu .mobile-nav a');
+
+    // --- Core Functions ---
 
     // Function to open the menu
     const openMenu = () => {
@@ -15,7 +19,9 @@ document.addEventListener('DOMContentLoaded', () => {
         mobileMenu.classList.remove('open');
     };
 
-    // Event listener for the hamburger icon
+    // --- Event Listeners ---
+
+    // Event listener for the hamburger icon to toggle the menu
     hamburger.addEventListener('click', () => {
         if (mobileMenu.classList.contains('open')) {
             closeMenu();
@@ -24,6 +30,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Event listener for the new close button
+    // Event listener for the dedicated close button
     closeMenuBtn.addEventListener('click', closeMenu);
+
+    // Add this new part to make links close the menu
+    navLinks.forEach(link => {
+        link.addEventListener('click', closeMenu);
+    });
 });
