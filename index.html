@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="pp.jpg">
+    
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
@@ -18,11 +18,18 @@
         <div class="header-container">
             <a href="index.html" class="logo">Ian Martin Branam</a>
             <nav class="desktop-nav">
-                <a href="index.html" class="current-page">Home</a>
-                <a href="#categories">Portfolio</a>
-                <a href="#about">About</a>
-                <a href="contact.html">Contact</a>
+                <a href="index.html" class="current-page" data-key="navHome">Home</a>
+                <a href="#categories" data-key="navPortfolio">Portfolio</a>
+                <a href="#about" data-key="navAbout">About</a>
+                <a href="contact.html" data-key="navContact">Contact</a>
             </nav>
+
+            <div class="lang-switcher">
+                <button class="lang-btn" data-lang="en">EN</button>
+                <span class="lang-separator">/</span>
+                <button class="lang-btn" data-lang="cs">CS</button>
+            </div>
+
             <button id="hamburger" aria-label="Open menu">
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -32,50 +39,52 @@
     </header>
 
     <div id="mobile-menu">
-    <button id="close-menu-btn" aria-label="Close menu">&times;</button>
-    
-    <nav class="mobile-nav">
-        <a href="index.html" class="current-page">Home</a>
-        <a href="#categories">Portfolio</a>
-        <a href="#about">About</a>
-        <a href="contact.html">Contact</a>
-    </nav>
-</div>
-    <div id="overlay"></div>
+        <nav class="mobile-nav">
+            <a href="index.html" class="current-page" data-key="navHomeMobile">Home</a>
+            <a href="#categories" data-key="navPortfolioMobile">Portfolio</a>
+            <a href="#about" data-key="navAboutMobile">About</a>
+            <a href="contact.html" data-key="navContactMobile">Contact</a>
+             <div class="lang-switcher-mobile">
+                <button class="lang-btn" data-lang="en">EN</button>
+                <span class="lang-separator">/</span>
+                <button class="lang-btn" data-lang="cs">CS</button>
+            </div>
+        </nav>
+    </div>
 
     <main>
         <section class="hero">
             <div class="hero-overlay">
                 <div class="hero-content">
-                    <h1>Capturing Motion & Structure</h1>
-                    <p>Specializing in Automotive and Architectural Photography</p>
-                    <a href="#categories" class="btn-primary">View My Work</a>
+                    <h1 data-key="heroTitle">Capturing Motion & Structure</h1>
+                    <p data-key="heroSubtitle">Specializing in Automotive and Architectural Photography</p>
+                    <a href="#categories" class="btn-primary" data-key="heroButton">View My Work</a>
                 </div>
             </div>
         </section>
 
         <section id="about" class="about-me">
             <div class="section-container">
-                <h2>About Me</h2>
-                <p>Hi, I’m Ian Martin Branam, a passionate photographer specializing in automotive and architectural photography. My work focuses on capturing the unique essence of motion and structure with creativity and precision.</p>
+                <h2 data-key="aboutTitle">About Me</h2>
+                <p data-key="aboutText">Hi, I’m Ian Martin Branam, a passionate photographer specializing in automotive and architectural photography. My work focuses on capturing the unique essence of motion and structure with creativity and precision.</p>
             </div>
         </section>
 
         <section id="categories" class="portfolio-categories">
             <div class="section-container">
-                <h2>Specialties</h2>
+                <h2 data-key="specialtiesTitle">Specialties</h2>
                 <div class="category-grid">
                     <a href="cars.html" class="category-card">
                         <div class="category-image cars"></div>
-                        <h3>Cars</h3>
+                        <h3 data-key="catCars">Cars</h3>
                     </a>
                     <a href="architecture.html" class="category-card">
                         <div class="category-image architecture"></div>
-                        <h3>Architecture</h3>
+                        <h3 data-key="catArchitecture">Architecture</h3>
                     </a>
                     <a href="portraits.html" class="category-card">
                         <div class="category-image portraits"></div>
-                        <h3>Portraits</h3>
+                        <h3 data-key="catPortraits">Portraits</h3>
                     </a>
                 </div>
             </div>
@@ -83,27 +92,27 @@
 
         <section class="recent-work">
             <div class="section-container">
-                <h2>Recent Projects</h2>
+                <h2 data-key="recentTitle">Recent Projects</h2>
                 <div class="projects-grid">
                     <div class="project-card">
-                        <img src="viper2.webp" alt="Red BMW E30 sports car">
+                        <img src="viper2.webp" alt="Dodge Viper">
                         <div class="project-info">
                             <h3>DODGE VIPER</h3>
-                            <p>A raw American icon, defined by aggressive lines and pure power.</p>
+                            <p data-key="viperDesc">A raw American icon, defined by aggressive lines and pure power.</p>
                         </div>
                     </div>
                     <div class="project-card">
-                        <img src="hellcatsrt1.webp" alt="Two Peugeot 106 cars">
+                        <img src="hellcatsrt1.webp" alt="Dodge Challenger SRT">
                         <div class="project-info">
                             <h3>DODGE CHALLENGER SRT</h3>
-                            <p>Modern muscle with a retro soul, built to dominate streets and tracks.</p>
+                            <p data-key="challengerDesc">Modern muscle with a retro soul, built to dominate streets and tracks.</p>
                         </div>
                     </div>
                     <div class="project-card">
-                        <img src="lexus1.webp" alt="Ford Mustang in a woodland setting">
+                        <img src="lexus1.webp" alt="Lexus RCF">
                         <div class="project-info">
                             <h3>LEXUS RCF</h3>
-                            <p>A refined Japanese coupe blending luxury with V8 performance.</p>
+                            <p data-key="lexusDesc">A refined Japanese coupe blending luxury with V8 performance.</p>
                         </div>
                     </div>
                 </div>
@@ -113,7 +122,7 @@
 
     <footer>
         <div class="footer-content">
-            <p>&copy; 2025 Ian Martin Branam Photography</p>
+            <p data-key="footerCopyright">&copy; 2025 Ian Martin Branam Photography</p>
             <p>Web design by <a href="http://www.adamfejfar.com" target="_blank" rel="noopener noreferrer" class="footer-designer-link">adamfejfar.com</a></p>
         </div>
     </footer>

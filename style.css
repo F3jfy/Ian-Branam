@@ -100,26 +100,26 @@ header {
 /* --- HERO SECTION --- */
 .hero {
     background: url('main.webp') center/cover no-repeat;
-    height: 90vh;
+    height: 100vh;
     position: relative;
     display: flex;
     align-items: center;  
     justify-content: center;
 }
 
-.hero-overlay {
-    background: linear-gradient(to top, rgba(18, 18, 18, 0.9), rgba(0, 0, 0, 0.3));
+     
+    .hero-overlay {
+    
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 50%, rgba(18, 18, 18, 0.85) 85%, #121212 97%);
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    /* Add these three lines to center the content */
     display: flex;
     align-items: center;
     justify-content: center;
 }
-
 .hero-content {
     position: relative;
     text-align: center;
@@ -230,7 +230,80 @@ header {
 .category-image.cars { background-image: url('photo1.webp'); }
 .category-image.architecture { background-image: url('photo2.webp'); }
 .category-image.portraits { background-image: url('photo3.webp'); }
+/* --- TABLET & DESKTOP GRID REFINEMENTS --- */
 
+/* This media query targets tablets (like an iPad in portrait) and larger screens. */
+/* --- TABLET & DESKTOP GRID REFINEMENTS --- */
+
+/* This media query targets screens 768px and wider (tablets and desktops).
+  It overrides the default flexible grid to enforce a strict 3-column layout.
+*/
+@media (min-width: 768px) {
+  
+  /* Fix for the main portfolio categories */
+  .category-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* Fix for the "Recent Projects" section */
+  .projects-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+}
+
+/* --- LANGUAGE SWITCHER --- */
+.lang-switcher {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-left: 2rem; /* Adds space between nav and switcher */
+}
+
+.lang-btn {
+    background: none;
+    border: none;
+    color: var(--secondary-text);
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 0.25rem;
+    opacity: 0.7;
+    transition: opacity 0.3s ease, color 0.3s ease;
+}
+
+.lang-btn:hover {
+    opacity: 1;
+    color: var(--accent-color);
+}
+
+.lang-btn.active {
+    opacity: 1;
+    color: var(--accent-color);
+}
+
+.lang-separator {
+    color: var(--border-color);
+}
+
+/* Hide desktop switcher on mobile */
+@media (max-width: 768px) {
+    .lang-switcher {
+        display: none;
+    }
+}
+
+/* Style switcher for mobile menu */
+.lang-switcher-mobile {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 2rem; /* Space it out in the mobile menu */
+    padding: 0.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+}
 /* --- RECENT WORK --- */
 .recent-work {
     background-color: var(--surface-color);
