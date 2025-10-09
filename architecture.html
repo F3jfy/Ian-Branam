@@ -1,107 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Cars Portfolio - Ian Martin Branam</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet" />
-  <link rel="icon" type="image/x-icon" href="favicon.ico" />
-  <link rel="icon" type="image/png" href="pp.jpg">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title data-key="pageTitle">Architecture Portfolio - Ian Martin Branam</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
 </head>
-<body>
- <header>
+<body data-page="architecture"> <header>
     <div class="header-container">
-      <div class="logo">Ian Martin Branam</div>
-      <nav class="desktop-nav">
-        <a href="index.html">Home</a>
-        <a href="cars.html" >Cars</a>
-        <a href="portraits.html">Portraits</a>
-        <a href="architecture.html"class="current-page">Architecture</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-      <button id="hamburger" aria-label="Open menu" aria-expanded="false">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </button>
-    </div>
-  </header>
-
-  <div id="mobile-menu">
-        <button id="close-menu-btn" aria-label="Close menu">&times;</button>
-        <nav class="mobile-nav">
-            <a href="index.html">Home</a>
-            <a href="cars.html">Cars</a>
-            <a href="portraits.html">Portraits</a>
-            <a href="architecture.html">Architecture</a>
-            <a href="contact.html">Contact</a>
+        <a href="index.html" class="logo">Ian Martin Branam</a>
+        <nav class="desktop-nav">
+            <a href="index.html" data-key="navHome">Home</a>
+            <a href="cars.html" data-key="navCars">Cars</a>
+            <a href="portraits.html" data-key="navPortraits">Portraits</a>
+            <a href="architecture.html" class="current-page" data-key="navArchitecture">Architecture</a>
+            <a href="contact.html" data-key="navContact">Contact</a>
         </nav>
+        <div class="lang-switcher">
+            <button class="lang-btn" data-lang="en">EN</button>
+            <span class="lang-separator">/</span>
+            <button class="lang-btn" data-lang="cs">CS</button>
+        </div>
+        <button id="hamburger" aria-label="Open menu" aria-expanded="false">
+            <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+        </button>
     </div>
+</header>
 
- <section class="hero">
-  <div class="hero-overlay">
-    <div class="hero-content">
-      <h1>Structures that Inspire</h1>
-      <p>Architectural photography highlighting design, light, and form.</p>
+<div id="mobile-menu">
+    <nav class="mobile-nav">
+        <a href="index.html" data-key="navHome">Home</a>
+        <a href="cars.html" data-key="navCars">Cars</a>
+        <a href="portraits.html" data-key="navPortraits">Portraits</a>
+        <a href="architecture.html" class="current-page" data-key="navArchitecture">Architecture</a>
+        <a href="contact.html" data-key="navContact">Contact</a>
+        <div class="lang-switcher-mobile">
+            <button class="lang-btn" data-lang="en">EN</button>
+            <span class="lang-separator">/</span>
+            <button class="lang-btn" data-lang="cs">CS</button>
+        </div>
+    </nav>
+</div>
+<div id="overlay"></div>
+
+<section class="hero">
+    <div class="hero-overlay">
+        <div class="hero-content">
+            <h1 data-key="heroTitle">Structures that Inspire</h1>
+            <p data-key="heroSubtitle">Architectural photography highlighting design, light, and form.</p>
+        </div>
     </div>
-  </div>
 </section>
 
-
-
 <main class="coming-soon">
-  <div class="coming-soon-content">
-    <h1>Coming Soon!</h1>
-    <p>Our architectural portfolio is currently being curated with new and inspiring works. Please check back shortly!</p>
+    <div class="coming-soon-content">
+        <h1 data-key="comingSoonTitle">Coming Soon!</h1>
+        <p data-key="comingSoonText">Our architectural portfolio is currently being curated with new and inspiring works. Please check back shortly!</p>
     </div>
 </main>
 
-<!-- Lightbox container 
-<main class="cars-gallery">
-  <div class="gallery-grid">
-    <img src="architecture1.webp" alt="Architecture photo 1" loading="lazy" />
-    <img src="architecture2.webp" alt="Architecture photo 2" loading="lazy" />
-    <img src="architecture3.webp" alt="Architecture photo 3" loading="lazy" />
-    <img src="architecture4.webp" alt="Architecture photo 4" loading="lazy" />
-    <img src="architecture5.webp" alt="Architecture photo 5" loading="lazy" />
-    <img src="architecture6.webp" alt="Architecture photo 6" loading="lazy" />
-    <img src="architecture7.webp" alt="Architecture photo 7" loading="lazy" />
-    <img src="architecture8.webp" alt="Architecture photo 8" loading="lazy" />
-    <img src="architecture9.webp" alt="Architecture photo 9" loading="lazy" />
-    <img src="architecture10.webp" alt="Architecture photo 10" loading="lazy" />
-    <img src="architecture11.webp" alt="Architecture photo 11" loading="lazy" />
-    <img src="architecture12.webp" alt="Architecture photo 12" loading="lazy" />
-    <img src="architecture13.webp" alt="Architecture photo 13" loading="lazy" />
-    <img src="architecture14.webp" alt="Architecture photo 14" loading="lazy" />
-    <img src="architecture15.webp" alt="Architecture photo 15" loading="lazy" />
-    <img src="architecture16.webp" alt="Architecture photo 16" loading="lazy" />
-    <img src="architecture17.webp" alt="Architecture photo 17" loading="lazy" />
-    <img src="architecture18.webp" alt="Architecture photo 18" loading="lazy" />
-    <img src="architecture19.webp" alt="Architecture photo 19" loading="lazy" />
-    <img src="architecture20.webp" alt="Architecture photo 20" loading="lazy" />
-    
-  </div>
-  
-</main>
--->
-
-  <footer>
+<footer>
     <div class="footer-content">
-      <p>&copy; 2025 Ian Martin Branam Photography</p>
-      <p>Web design by <a href="http://www.adamfejfar.com" target="_blank" rel="noopener noreferrer" class="footer-designer-link">adamfejfar.com</a></p>
-      <div>
-  </footer>
+        <p data-key="footerCopyright">&copy; 2025 Ian Martin Branam Photography</p>
+        <p>Web design by <a href="http://www.adamfejfar.com" target="_blank" rel="noopener noreferrer" class="footer-designer-link">adamfejfar.com</a></p>
+    </div>
+</footer>
 
-  <!-- Lightbox container -->
-  <div id="lightbox" aria-hidden="true" role="dialog" aria-label="Image preview">
-    <button id="lightbox-close" aria-label="Close lightbox">&times;</button>
-    <img id="lightbox-img" src="" alt="" />
-  </div>
-
-  <div id="overlay"></div>
-  <script src="script.js" defer></script>
+<script src="script.js" defer></script>
 </body>
 </html>

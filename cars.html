@@ -2,93 +2,72 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Cars Portfolio - Ian Martin Branam</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title data-key="pageTitle">Cars Portfolio - Ian Martin Branam</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="icon" type="image/x-icon" href="favicon.ico" />
-  <link rel="icon" type="image/png" href="pp.jpg">
   <style>
-    .cars-gallery {
-      padding: 5rem 2rem;
-      background-color: var(--surface-color);
-    }
-
-    .cars-gallery h2 {
-      text-align: center;
-      font-size: 2.5rem;
-      color: var(--accent-color);
-      margin-bottom: 3rem;
-    }
-
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.5rem;
-      max-width: 1400px;
-      margin: 0 auto;
-    }
-
-    .gallery-grid img {
-      width: 100%;
-      height: 100%;
-      aspect-ratio: 4/3;
-      object-fit: cover;
-      border-radius: 12px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor: pointer;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    }
-
-    .gallery-grid img:hover {
-      transform: scale(1.03);
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
-    }
+    /* Your gallery-specific styles can stay here or be moved to style.css */
+    .cars-gallery { padding: 5rem 2rem; background-color: var(--surface-color); }
+    .cars-gallery h2 { text-align: center; font-size: 2.5rem; color: var(--accent-color); margin-bottom: 3rem; }
+    .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; max-width: 1400px; margin: 0 auto; }
+    .gallery-grid img { width: 100%; height: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 12px; transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); }
+    .gallery-grid img:hover { transform: scale(1.03); box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5); }
   </style>
 </head>
 <body>
+
   <header>
     <div class="header-container">
-      <div class="logo">Ian Martin Branam</div>
+      <a href="index.html" class="logo">Ian Martin Branam</a>
       <nav class="desktop-nav">
-        <a href="index.html">Home</a>
-        <a href="cars.html" class="current-page">Cars</a>
-        <a href="portraits.html">Portraits</a>
-        <a href="architecture.html">Architecture</a>
-        <a href="contact.html">Contact</a>
+        <a href="index.html" data-key="navHome">Home</a>
+        <a href="cars.html" class="current-page" data-key="navCars">Cars</a>
+        <a href="portraits.html" data-key="navPortraits">Portraits</a>
+        <a href="architecture.html" data-key="navArchitecture">Architecture</a>
+        <a href="contact.html" data-key="navContact">Contact</a>
       </nav>
+      <div class="lang-switcher">
+          <button class="lang-btn" data-lang="en">EN</button>
+          <span class="lang-separator">/</span>
+          <button class="lang-btn" data-lang="cs">CS</button>
+      </div>
       <button id="hamburger" aria-label="Open menu" aria-expanded="false">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
       </button>
     </div>
   </header>
 
- <div id="mobile-menu">
-        <button id="close-menu-btn" aria-label="Close menu">&times;</button>
-        <nav class="mobile-nav">
-            <a href="index.html">Home</a>
-            <a href="cars.html">Cars</a>
-            <a href="portraits.html">Portraits</a>
-            <a href="architecture.html">Architecture</a>
-            <a href="contact.html">Contact</a>
-        </nav>
-    </div>
+  <div id="mobile-menu">
+    <nav class="mobile-nav">
+      <a href="index.html" data-key="navHome">Home</a>
+      <a href="cars.html" class="current-page" data-key="navCars">Cars</a>
+      <a href="portraits.html" data-key="navPortraits">Portraits</a>
+      <a href="architecture.html" data-key="navArchitecture">Architecture</a>
+      <a href="contact.html" data-key="navContact">Contact</a>
+      <div class="lang-switcher-mobile">
+          <button class="lang-btn" data-lang="en">EN</button>
+          <span class="lang-separator">/</span>
+          <button class="lang-btn" data-lang="cs">CS</button>
+      </div>
+    </nav>
+  </div>
+  <div id="overlay"></div>
 
   <section class="hero">
     <div class="hero-overlay">
       <div class="hero-content">
-        <h1>Precision in Every Frame</h1>
-        <p>Showcasing the finest automotive photography with passion and detail.</p>
+        <h1 data-key="heroTitle">Precision in Every Frame</h1>
+        <p data-key="heroSubtitle">Showcasing the finest automotive photography with passion and detail.</p>
       </div>
     </div>
   </section>
 
   <main class="cars-gallery">
-    <h2>Car Photography</h2>
+    <h2 data-key="galleryTitle">Car Photography</h2>
     <div class="gallery-grid">
       <img src="e30.webp" alt="BMW E30" loading="lazy" />
       <img src="ferrari1.webp" alt="Ferrari" loading="lazy" />
@@ -111,74 +90,31 @@
 
   <footer>
     <div class="footer-content">
-      <p>&copy; 2025 Ian Martin Branam Photography</p>
+      <p data-key="footerCopyright">&copy; 2025 Ian Martin Branam Photography</p>
       <p>Web design by <a href="http://www.adamfejfar.com" target="_blank" rel="noopener noreferrer" class="footer-designer-link">adamfejfar.com</a></p>
     </div>
   </footer>
 
-  <div id="lightbox" aria-hidden="true" role="dialog" aria-label="Image preview">
-    <button id="lightbox-close" aria-label="Close lightbox">&times;</button>
-    <img id="lightbox-img" src="" alt="Preview" />
-  </div>
-  <div id="overlay"></div>
+  <div id="lightbox"><button id="lightbox-close">&times;</button><img id="lightbox-img" src="" alt=""></div>
 
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const hamburger = document.getElementById('hamburger');
-      const mobileMenu = document.getElementById('mobile-menu');
-      const overlay = document.getElementById('overlay');
-
-      function toggleMenu() {
-        hamburger.classList.toggle('active');
-        mobileMenu.classList.toggle('open');
-        overlay.classList.toggle('active');
-
-        const isMenuOpen = mobileMenu.classList.contains('open');
-        hamburger.setAttribute('aria-expanded', isMenuOpen);
-        mobileMenu.setAttribute('aria-hidden', !isMenuOpen);
-        document.body.style.overflow = isMenuOpen ? 'hidden' : '';
+    const pageTranslations = {
+      en: {
+        pageTitle: "Cars Portfolio - Ian Martin Branam",
+        heroTitle: "Precision in Every Frame",
+        heroSubtitle: "Showcasing the finest automotive photography with passion and detail.",
+        galleryTitle: "Car Photography"
+      },
+      cs: {
+        pageTitle: "Portfolio aut - Ian Martin Branam",
+        heroTitle: "Preciznost v každém záběru",
+        heroSubtitle: "Prezentace nejlepší automobilové fotografie s vášní a detailem.",
+        galleryTitle: "Fotografie aut"
       }
-
-      hamburger.addEventListener('click', toggleMenu);
-      overlay.addEventListener('click', toggleMenu);
-
-      mobileMenu.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-          if (mobileMenu.classList.contains('open')) toggleMenu();
-        });
-      });
-    });
-
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightbox-img');
-    const lightboxClose = document.getElementById('lightbox-close');
-    const galleryImages = document.querySelectorAll('.gallery-grid img');
-
-    galleryImages.forEach(img => {
-      img.addEventListener('click', () => {
-        lightboxImg.src = img.src;
-        lightboxImg.alt = img.alt;
-        lightbox.classList.add('active');
-        lightbox.setAttribute('aria-hidden', 'false');
-        document.body.style.overflow = 'hidden';
-      });
-    });
-
-    lightboxClose.addEventListener('click', () => {
-      lightbox.classList.remove('active');
-      lightbox.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = '';
-    });
-
-    lightbox.addEventListener('click', e => {
-      if (e.target === lightbox) lightboxClose.click();
-    });
-
-    document.addEventListener('keydown', e => {
-      if (e.key === 'Escape' && lightbox.classList.contains('active')) {
-        lightboxClose.click();
-      }
-    });
+    };
   </script>
+
+  <script src="script.js" defer></script>
+
 </body>
 </html>

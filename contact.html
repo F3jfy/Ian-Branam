@@ -1,83 +1,90 @@
-  <!DOCTYPE html>
-  <html lang="en">
-  <head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Contact - Ian Martin Branam - Car & Architectural Photographer</title>
-    <link rel="icon" type="image/png" href="pp.jpg">
+    <title data-key="pageTitle">Contact - Ian Martin Branam - Car & Architectural Photographer</title>
     <link rel="stylesheet" href="style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
-  </head>
+</head>
 
-  <body>
-   <header>
+<body data-page="contact"> <header>
     <div class="header-container">
-      <div class="logo">Ian Martin Branam</div>
-      <nav class="desktop-nav">
-        <a href="index.html">Home</a>
-        <a href="cars.html" >Cars</a>
-        <a href="portraits.html">Portraits</a>
-        <a href="architecture.html">Architecture</a>
-        <a href="contact.html"class="current-page">Contact</a>
-      </nav>
-      <button id="hamburger" aria-label="Open menu" aria-expanded="false">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </button>
+        <a href="index.html" class="logo">Ian Martin Branam</a>
+        <nav class="desktop-nav">
+            <a href="index.html" data-key="navHome">Home</a>
+            <a href="cars.html" data-key="navCars">Cars</a>
+            <a href="portraits.html" data-key="navPortraits">Portraits</a>
+            <a href="architecture.html" data-key="navArchitecture">Architecture</a>
+            <a href="contact.html" class="current-page" data-key="navContact">Contact</a>
+        </nav>
+        <div class="lang-switcher">
+            <button class="lang-btn" data-lang="en">EN</button>
+            <span class="lang-separator">/</span>
+            <button class="lang-btn" data-lang="cs">CS</button>
+        </div>
+        <button id="hamburger" aria-label="Open menu" aria-expanded="false">
+            <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+        </button>
     </div>
-  </header>
+   </header>
 
-  <div id="mobile-menu" aria-hidden="true">
-    <nav class="mobile-nav">
-      <a href="index.html">Home</a>
-      <a href="index.html#categories">Portfolio</a>
-      <a href="index.html#about">About</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </div>
+    <div id="mobile-menu">
+        <nav class="mobile-nav">
+            <a href="index.html" data-key="navHome">Home</a>
+            <a href="cars.html" data-key="navCars">Cars</a>
+            <a href="portraits.html" data-key="navPortraits">Portraits</a>
+            <a href="architecture.html" data-key="navArchitecture">Architecture</a>
+            <a href="contact.html" class="current-page" data-key="navContact">Contact</a>
+            <div class="lang-switcher-mobile">
+                <button class="lang-btn" data-lang="en">EN</button>
+                <span class="lang-separator">/</span>
+                <button class="lang-btn" data-lang="cs">CS</button>
+            </div>
+        </nav>
+    </div>
+    <div id="overlay"></div>
 
     <section class="contact-hero">
-      <div class="hero-overlay">
-        <div class="hero-content">
-          <h1>Let's Connect</h1>
-          <p>I'd love to hear about your project or answer any questions you might have.</p>
+        <div class="hero-overlay">
+            <div class="hero-content">
+                <h1 data-key="heroTitle">Let's Connect</h1>
+                <p data-key="heroSubtitle">I'd love to hear about your project or answer any questions you might have.</p>
+            </div>
         </div>
-      </div>
     </section>
 
    <section class="contact-details-simple">
-  <h2>Get in Touch</h2>
-  <div class="contact-info-list">
-    <div class="contact-item">
-      <h3>Email</h3>
-      <p><a href="mailto:branajen@gmail.com">branajen@gmail.com</a></p>
-      <p>For detailed inquiries or project discussions.</p>
-    </div>
-    <div class="contact-item">
-      <h3>Phone</h3>
-      <p><a href="tel:+420720971399">+420 720 971 399</a></p>
-      <p>Available for calls during business hours.</p>
-    </div>
-    <div class="contact-item">
-      <h3>Instagram</h3>
-      <p><a href="https://www.instagram.com/jendaahxd" target="_blank">@jendaahxd</a></p>
-      <p>See my latest work and connect with me there.</p>
-    </div>
-  </div>
-</section>
+        <h2 data-key="contactTitle">Get in Touch</h2>
+        <div class="contact-info-list">
+            <div class="contact-item">
+                <h3>Email</h3>
+                <p><a href="mailto:branajen@gmail.com">branajen@gmail.com</a></p>
+                <p data-key="emailDesc">For detailed inquiries or project discussions.</p>
+            </div>
+            <div class="contact-item">
+                <h3 data-key="phoneTitle">Phone</h3>
+                <p><a href="tel:+420720971399">+420 720 971 399</a></p>
+                <p data-key="phoneDesc">Available for calls during business hours.</p>
+            </div>
+            <div class="contact-item">
+                <h3>Instagram</h3>
+                <p><a href="https://www.instagram.com/jendaahxd" target="_blank">@jendaahxd</a></p>
+                <p data-key="instagramDesc">See my latest work and connect with me there.</p>
+            </div>
+        </div>
+    </section>
 
     <footer>
-      <div class="footer-content">
-        <p>&copy; 2025 Ian Martin Branam Photography</p>
-      <p>Web design by <a href="http://www.adamfejfar.com" target="_blank" rel="noopener noreferrer" class="footer-designer-link">adamfejfar.com</a></p>
-      </div>
+        <div class="footer-content">
+            <p data-key="footerCopyright">&copy; 2025 Ian Martin Branam Photography</p>
+            <p>Web design by <a href="http://www.adamfejfar.com" target="_blank" rel="noopener noreferrer" class="footer-designer-link">adamfejfar.com</a></p>
+        </div>
     </footer>
 
-    <div id="overlay"></div>
     <script src="script.js" defer></script>
-  </body>
-  </html>
+</body>
+</html>
